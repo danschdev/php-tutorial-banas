@@ -14,7 +14,7 @@ class MainController extends AbstractController
      */
     public function index()
     {
-        return new Response($content = '<h1>Symfony</h1>');
+        return $this->render($view='home/index.html.twig');
     }
 
     /**
@@ -23,6 +23,6 @@ class MainController extends AbstractController
     public function custom(Request $request)
     {
         $name = $request->get('name');
-        return new Response($content = '<h1>Welcome ' . $name . '</h1>', $status = '200');
+        return $this->render($view='home/custom.html.twig');
     }
 }
