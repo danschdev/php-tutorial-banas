@@ -14,15 +14,15 @@ class MainController extends AbstractController
      */
     public function index()
     {
-        return new Response($content='<h1>Symfony</h1>'  );
+        return new Response($content = '<h1>Symfony</h1>');
     }
 
     /**
      * @Route("/custom/{name?}", name="custom")
      */
-    public function custom(Request $request) {
-        dump($request);
+    public function custom(Request $request)
+    {
         $name = $request->get('name');
-        return new Response($content='<h1>Welcome '.$name.'</h1>',$status='200');
+        return new Response($content = '<h1>Welcome ' . $name . '</h1>', $status = '200');
     }
 }
