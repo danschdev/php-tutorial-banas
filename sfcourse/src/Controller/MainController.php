@@ -3,18 +3,23 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
     /**
-     * @Route("/main", name="main")
+     * @Route("/", name="home")
      */
     public function index()
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/MainController.php',
-        ]);
+        return new Response($content='<h1>Symfony</h1>'  );
+    }
+
+    /**
+     * @Route("/custom", name="custom")
+     */
+    public function custom() {
+        return new Response($content='Custom Page',$status='200');
     }
 }
