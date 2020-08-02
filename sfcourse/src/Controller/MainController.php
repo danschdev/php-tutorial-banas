@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,9 +18,10 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/custom", name="custom")
+     * @Route("/custom/{name?}", name="custom")
      */
-    public function custom() {
-        return new Response($content='Custom Page',$status='200');
+    public function custom(Request $request) {
+        dump($request);
+        return new Response($content='<h1>Welcome {name}</h1>',$status='200');
     }
 }
